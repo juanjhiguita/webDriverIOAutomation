@@ -40,7 +40,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(loginScreen.isSignUpClickable());
         // Hacer click en el boton de "Sign up"
         loginScreen.clickSignUpBtn();
-        Assert.assertTrue(loginScreen.isSignUpMessageEqualsExpected());
+        Assert.assertTrue(loginScreen.isSignUpAlertEqualsExpected());
         // Assert para comprobar que el proceso de registro se ha completado con exito
     }
 }
