@@ -22,7 +22,7 @@ public class BaseTest {
         UiAutomator2Options capabilities = new UiAutomator2Options();
         setUpCapabilities(capabilities);
         try{
-            driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
+                driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
         }catch (MalformedURLException exception){
             System.out.println(exception.getMessage());
         }

@@ -22,7 +22,17 @@ public class WebViewScreen extends BaseScreen {
     @AndroidFindBy(accessibility = "Login")
     private WebElement loginMenuBtn;
 
+    public WebElement getWebViewTitleTxt() {
+        return webViewTitleTxt;
+    }
+
+    public WebElement getLoginMenuBtn() {
+        return loginMenuBtn;
+    }
+
     public boolean verifyBeOnWebViewScreen() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(getWebViewTitleTxt()));
         return this.webViewTitleTxt.isDisplayed();
     }
 
