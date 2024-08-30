@@ -18,6 +18,9 @@ public class MainScreen extends BaseScreen {
     @AndroidFindBy(accessibility = "Webview")
     private WebElement webViewMenuBtn;
 
+    @AndroidFindBy(accessibility = "Login")
+    private WebElement loginMenuBtn;
+
     public boolean verifyBeOnMainScreen() {
         return this.homeTitleTxt.isDisplayed();
     }
@@ -29,5 +32,10 @@ public class MainScreen extends BaseScreen {
     public WebViewScreen openWebViewScreen() {
         this.webViewMenuBtn.click();
         return new WebViewScreen(driver);
+    }
+
+    public LoginScreen openLoginScreen() {
+        this.loginMenuBtn.click();
+        return new LoginScreen(driver);
     }
 }

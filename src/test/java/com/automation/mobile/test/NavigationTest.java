@@ -29,7 +29,7 @@ public class NavigationTest extends BaseTest {
         // Assert para corroborar que se esta en la pagina de Login
         Assert.assertTrue(loginScreen.verifyBeOnLoginScreen());
         // Luego verificar que el MENU "Forms" sea visible, clickeable y tambien mas propiedes
-        Assert.assertTrue(loginScreen.isFormsMenuBtnClickeable());
+        Assert.assertTrue(loginScreen.isFormsMenuBtnClickable());
         // Se sigue con el flujo
         FormsScreen formsScreen = loginScreen.openFormsScreen();
 
