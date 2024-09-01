@@ -15,6 +15,7 @@ public class HomeScreen extends BaseScreen {
     private WebElement homeTitleTxt;
 
     public boolean verifyBeOnMainScreen() {
+
         return this.homeTitleTxt.isDisplayed();
     }
 
@@ -22,8 +23,8 @@ public class HomeScreen extends BaseScreen {
         return this.getWebviewMenuBtn().isDisplayed();
     }
 
-    public WebViewScreen openWebViewScreen() {
+    public WebviewScreen openWebViewScreen() {
         this.getWebviewMenuBtn().click();
-        return new WebViewScreen(driver);
+        return new WebviewScreen(driver);
     }
 }

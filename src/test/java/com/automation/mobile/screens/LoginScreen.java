@@ -58,6 +58,8 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean verifyBeOnLoginScreen() {
+        WebDriverWait wait = setUpWait(10);
+        wait.until(ExpectedConditions.visibilityOf(this.loginTitleTxt));
         return this.loginTitleTxt.isDisplayed();
     }
 

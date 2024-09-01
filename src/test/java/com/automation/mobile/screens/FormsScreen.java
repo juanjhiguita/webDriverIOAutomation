@@ -24,7 +24,7 @@ public class FormsScreen extends BaseScreen {
     }
 
     public boolean verifyBeOnFormsScreen() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = setUpWait(10);
         wait.until(ExpectedConditions.visibilityOf(this.formsTitleTxt));
         return this.formsTitleTxt.isDisplayed();
     }

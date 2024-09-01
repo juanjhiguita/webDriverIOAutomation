@@ -6,12 +6,11 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 
-public class WebViewScreen extends BaseScreen {
-    public WebViewScreen(AndroidDriver driver) {
+public class WebviewScreen extends BaseScreen {
+    public WebviewScreen(AndroidDriver driver) {
         super(driver);
     }
 
@@ -27,10 +26,6 @@ public class WebViewScreen extends BaseScreen {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(this.getWebViewTitleTxt()));
         return this.webViewTitleTxt.isDisplayed();
-    }
-
-    public boolean isLoginMenuBtnClickeable(){
-        return this.getLoginMenuBtn().isDisplayed();
     }
 
     public LoginScreen openLoginScreen() {

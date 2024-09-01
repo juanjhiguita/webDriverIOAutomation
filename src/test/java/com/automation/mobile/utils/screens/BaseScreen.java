@@ -1,9 +1,7 @@
 package com.automation.mobile.utils.screens;
 
 import com.automation.mobile.screens.*;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
@@ -63,9 +61,9 @@ public class BaseScreen {
         return new HomeScreen(driver);
     }
 
-    public WebViewScreen openWebViewScreen() {
+    public WebviewScreen openWebViewScreen() {
         this.getWebviewMenuBtn().click();
-        return new WebViewScreen(driver);
+        return new WebviewScreen(driver);
     }
 
     public LoginScreen openLoginScreen() {
@@ -87,6 +85,30 @@ public class BaseScreen {
         return new DragScreen(driver);
     }
 
+    public boolean isHomeMenuBtnVisibleAndClickeable(){
+        return this.getHomeMenuBtn().isDisplayed() && this.getHomeMenuBtn().getAttribute("clickable").equals("true");
+    }
+
+    public boolean isWebviewMenuBtnVisibleAndClickeable(){
+        return this.getWebviewMenuBtn().isDisplayed() && this.getWebviewMenuBtn().getAttribute("clickable").equals("true");
+    }
+
+    public boolean isLoginMenuBtnVisibleAndClickeable(){
+        return this.getLoginMenuBtn().isDisplayed() && this.getLoginMenuBtn().getAttribute("clickable").equals("true");
+    }
+
+    public boolean isFormsMenuBtnVisibleAndClickeable(){
+        return this.getFormsMenuBtn().isDisplayed() && this.getFormsMenuBtn().getAttribute("clickable").equals("true");
+    }
+
+    public boolean isSwipeMenuBtnVisibleAndClickeable(){
+        return this.getSwipeMenuBtn().isDisplayed() && this.getSwipeMenuBtn().getAttribute("clickable").equals("true");
+    }
+
+    public boolean isDragMenuBtnVisibleAndClickeable(){
+        return this.getDragMenuBtn().isDisplayed() && this.getDragMenuBtn().getAttribute("clickable").equals("true");
+    }
+
     public WebDriverWait setUpWait(long time){
         return new WebDriverWait(driver, Duration.ofSeconds(time));
     }
@@ -98,4 +120,6 @@ public class BaseScreen {
 
         }
     }
+
+
 }

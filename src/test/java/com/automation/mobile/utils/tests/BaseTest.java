@@ -48,7 +48,7 @@ public class BaseTest {
         return properties.getProperty(variable);
     }
 
-    public HomeScreen returnMainScreen(){
+    public HomeScreen returnHomeScreen(){
         return new HomeScreen(driver);
     }
 }

@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     public void oneTest(){
         // CONDICION PREVIA: El usuario debe estar en la sección de Login y tener un usuario previamente creado.
 
-        HomeScreen mainScreen = returnMainScreen();
+        HomeScreen mainScreen = returnHomeScreen();
 
         LoginScreen loginScreen = mainScreen.openLoginScreen();
         // Assert para corroborar que se esta en la pagina de Login

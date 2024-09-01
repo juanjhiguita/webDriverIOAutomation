@@ -15,7 +15,7 @@ public class RegisterTest extends BaseTest {
     @Test
     public void testOne(){
         // CONDICION PREVIA: el usuario debe estar en la sección Inicio de sesión
-        HomeScreen mainScreen = returnMainScreen();
+        HomeScreen mainScreen = returnHomeScreen();
 
         LoginScreen loginScreen = mainScreen.openLoginScreen();
         // Assert para corroborar que se esta en la pagina de Login

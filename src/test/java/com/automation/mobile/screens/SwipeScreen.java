@@ -8,6 +8,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -59,6 +61,8 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public boolean verifyBeOnSwipeScreen() {
+        WebDriverWait wait = setUpWait(10);
+        wait.until(ExpectedConditions.visibilityOf(this.swipeTitleTxt));
         return this.swipeTitleTxt.isDisplayed();
     }
 

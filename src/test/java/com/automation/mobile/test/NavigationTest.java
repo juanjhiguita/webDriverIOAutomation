@@ -1,53 +1,67 @@
 package com.automation.mobile.test;
 
 import com.automation.mobile.screens.*;
+import com.automation.mobile.utils.screens.BaseScreen;
 import com.automation.mobile.utils.tests.BaseTest;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class NavigationTest extends BaseTest {
+    private static final Logger log = LoggerFactory.getLogger(NavigationTest.class);
+
+    @BeforeTest
+    public void beforeTest(){
+        // CONDICION PREVIA: EL USUARIO DEBE ESTAR EN LA PANTALLA DE INICIO
+        log.info("Test Start");
+        environmentSetup();
+        HomeScreen homeScreen = returnHomeScreen();
+        homeScreen.waitSomeSeconds(5);
+        homeScreen.openHomeScreen();
+    }
 
     @Test
-    public void testOne(){
-        // CONDICION PREVIA: EL USUARIO DEBE ESTAR EN LA PANTALLA DE INICIO
-
-        HomeScreen homeScreen = returnMainScreen();
-        // Asserts para corroborar que se esta en la main screen
+    public void verifyNavigation(){
+        //Home
+        HomeScreen homeScreen = new HomeScreen(driver);
         Assert.assertTrue(homeScreen.verifyBeOnMainScreen());
-        // Luego, verificar que el MENU "WebView" es visible y clickeable, tambien mas propiedades
         Assert.assertTrue(homeScreen.isWebViewMenuBtnDisplayed());
-        // Se sigue con el flujo
-        WebViewScreen webViewScreen = homeScreen.openWebViewScreen();
-
-        // Assert para corroborar que se esta en la pagina de WebView
+        WebviewScreen webViewScreen = homeScreen.openWebViewScreen();
+        // WebView
         Assert.assertTrue(webViewScreen.verifyBeOnWebViewScreen());
-        // Luego verificar que el MENU "Login" sea visible, clickeable y tambien mas propiedes
-        Assert.assertTrue(webViewScreen.isLoginMenuBtnClickeable());
-        // Se sigue con el flujo
+        Assert.assertTrue(webViewScreen.isLoginMenuBtnVisibleAndClickeable());
         LoginScreen loginScreen = webViewScreen.openLoginScreen();
-
-        // Assert para corroborar que se esta en la pagina de Login
+        // Login
         Assert.assertTrue(loginScreen.verifyBeOnLoginScreen());
-        // Luego verificar que el MENU "Forms" sea visible, clickeable y tambien mas propiedes
-        Assert.assertTrue(loginScreen.isFormsMenuBtnClickable());
-        // Se sigue con el flujo
+        Assert.assertTrue(loginScreen.isFormsMenuBtnVisibleAndClickeable());
         FormsScreen formsScreen = loginScreen.openFormsScreen();
-
-        // Assert para corroborar que se esta en la pagina de Forms
+        // Forms
         Assert.assertTrue(formsScreen.verifyBeOnFormsScreen());
-        // Luego verificar que el MENU "Swipe" sea visible, clickeable y tambien mas propiedes
-        Assert.assertTrue(formsScreen.isSwipeMenuBtnClickeable());
-        // Se sigue con el flujo
+        Assert.assertTrue(formsScreen.isSwipeMenuBtnVisibleAndClickeable());
         SwipeScreen swipeScreen = formsScreen.openSwipeScreen();
-
-        // Assert para corroborar que se esta en la pagina de Swipe
+        // Swipe
         Assert.assertTrue(swipeScreen.verifyBeOnSwipeScreen());
-        // Luego verificar que el MENU "Drag" sea visible, clickeable y tambien mas propiedes
-        Assert.assertTrue(swipeScreen.isDragMenuBtnClickable());
-        // Sigue con el flujo
+        Assert.assertTrue(swipeScreen.isDragMenuBtnVisibleAndClickeable());
         DragScreen dragScreen = swipeScreen.openDragScreen();
-
-        // Assert para corroborar que se esta en la pagina de drag
+        // Drag
         Assert.assertTrue(dragScreen.verifyBeOnDragScreen());
+        Assert.assertTrue(dragScreen.isHomeMenuBtnVisibleAndClickeable());
+        dragScreen.openHomeScreen();
+        //Home
+        homeScreen = new HomeScreen(driver);
+        Assert.assertTrue(homeScreen.verifyBeOnMainScreen());
+    }
+
+    @AfterTest
+    public void afterTest(){
+        driver.quit();
+        log.info("TERMINADO");
     }
 }
