@@ -19,15 +19,8 @@ public class FormsScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = FORMS_TITLE_TXT)
     private WebElement formsTitleTxt;
 
-    @AndroidFindBy(accessibility = "Swipe")
-    private WebElement swipeMenuBtn;
-
     public WebElement getFormsTitleTxt() {
         return formsTitleTxt;
-    }
-
-    public WebElement getSwipeMenuBtn() {
-        return swipeMenuBtn;
     }
 
     public boolean verifyBeOnFormsScreen() {
@@ -37,11 +30,8 @@ public class FormsScreen extends BaseScreen {
     }
 
     public boolean isSwipeMenuBtnClickeable() {
-        return this.swipeMenuBtn.isDisplayed();
+        return getSwipeMenuBtn().isDisplayed();
     }
 
-    public SwipeScreen openSwipeScreen() {
-        this.swipeMenuBtn.click();
-        return new SwipeScreen(driver);
-    }
+
 }

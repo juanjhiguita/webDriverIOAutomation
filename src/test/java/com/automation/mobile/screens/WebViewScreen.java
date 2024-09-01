@@ -19,15 +19,8 @@ public class WebViewScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = WEBVIEW_TITLE_TXT)
     private WebElement webViewTitleTxt;
 
-    @AndroidFindBy(accessibility = "Login")
-    private WebElement loginMenuBtn;
-
     public WebElement getWebViewTitleTxt() {
         return webViewTitleTxt;
-    }
-
-    public WebElement getLoginMenuBtn() {
-        return loginMenuBtn;
     }
 
     public boolean verifyBeOnWebViewScreen() {
@@ -37,11 +30,11 @@ public class WebViewScreen extends BaseScreen {
     }
 
     public boolean isLoginMenuBtnClickeable(){
-        return this.loginMenuBtn.isDisplayed();
+        return this.getLoginMenuBtn().isDisplayed();
     }
 
     public LoginScreen openLoginScreen() {
-        this.loginMenuBtn.click();
+        this.getLoginMenuBtn().click();
         return new LoginScreen(driver);
     }
 }

@@ -1,7 +1,7 @@
 package com.automation.mobile.test;
 
+import com.automation.mobile.screens.HomeScreen;
 import com.automation.mobile.screens.LoginScreen;
-import com.automation.mobile.screens.MainScreen;
 import com.automation.mobile.utils.tests.BaseTest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,7 @@ public class RegisterTest extends BaseTest {
     @Test
     public void testOne(){
         // CONDICION PREVIA: el usuario debe estar en la sección Inicio de sesión
-        MainScreen mainScreen = returnMainScreen();
+        HomeScreen mainScreen = returnMainScreen();
 
         LoginScreen loginScreen = mainScreen.openLoginScreen();
         // Assert para corroborar que se esta en la pagina de Login

@@ -17,4 +17,9 @@
             <class name="com.automation.mobile.test.LoginTest"></class>
         </classes>
     </test>
+    <test name="swipe cards test">
+        <classes>
+            <class name="com.automation.mobile.test.SwipeCardsTest"></class>
+        </classes>
+    </test>
 </suite>

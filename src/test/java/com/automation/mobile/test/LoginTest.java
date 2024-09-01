@@ -1,7 +1,7 @@
 package com.automation.mobile.test;
 
+import com.automation.mobile.screens.HomeScreen;
 import com.automation.mobile.screens.LoginScreen;
-import com.automation.mobile.screens.MainScreen;
 import com.automation.mobile.utils.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     public void oneTest(){
         // CONDICION PREVIA: El usuario debe estar en la sección de Login y tener un usuario previamente creado.
 
-        MainScreen mainScreen = returnMainScreen();
+        HomeScreen mainScreen = returnMainScreen();
 
         LoginScreen loginScreen = mainScreen.openLoginScreen();
         // Assert para corroborar que se esta en la pagina de Login

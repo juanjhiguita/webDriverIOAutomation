@@ -15,9 +15,6 @@ public class LoginScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"Login / Sign up Form\")")
     private WebElement loginTitleTxt;
 
-    @AndroidFindBy(accessibility = "Forms")
-    private WebElement formsMenuBtn;
-
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"Sign up\")")
     private WebElement signUpMenuBtn;
 
@@ -65,11 +62,11 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isFormsMenuBtnClickable(){
-        return this.formsMenuBtn.isDisplayed();
+        return getFormsMenuBtn().isDisplayed();
     }
 
     public FormsScreen openFormsScreen() {
-        this.formsMenuBtn.click();
+        getFormsMenuBtn().click();
         return new FormsScreen(driver);
     }
 

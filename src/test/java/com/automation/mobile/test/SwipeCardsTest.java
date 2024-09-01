@@ -1,6 +1,6 @@
 package com.automation.mobile.test;
 
-import com.automation.mobile.screens.MainScreen;
+import com.automation.mobile.screens.HomeScreen;
 import com.automation.mobile.screens.SwipeScreen;
 import com.automation.mobile.utils.tests.BaseTest;
 import org.openqa.selenium.Point;
@@ -21,8 +21,8 @@ public class SwipeCardsTest extends BaseTest {
     @Test
     public void testOne(){
         // CONDICION PREVIA: El usuario debe estar en la sección Swipe.
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        MainScreen mainScreen = returnMainScreen();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        HomeScreen mainScreen = returnMainScreen();
 
         SwipeScreen swipeScreen = mainScreen.openSwipeScreen();
         // Verificar que esta en la seccion swipe

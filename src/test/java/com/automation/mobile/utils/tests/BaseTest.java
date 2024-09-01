@@ -1,6 +1,6 @@
 package com.automation.mobile.utils.tests;
 
-import com.automation.mobile.screens.MainScreen;
+import com.automation.mobile.screens.HomeScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.BeforeMethod;
@@ -48,7 +48,7 @@ public class BaseTest {
         return properties.getProperty(variable);
     }
 
-    public MainScreen returnMainScreen(){
-        return new MainScreen(driver);
+    public HomeScreen returnMainScreen(){
+        return new HomeScreen(driver);
     }
 }

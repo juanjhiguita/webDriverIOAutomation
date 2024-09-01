@@ -21,9 +21,6 @@ public class SwipeScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = SWIPE_TITLE_TXT)
     private WebElement swipeTitleTxt;
 
-    @AndroidFindBy(accessibility = "Drag")
-    private WebElement dragMenuBtn;
-
     private WebElement PreviousCard;
     private WebElement mainCard;
     private WebElement nextCard;
@@ -66,11 +63,11 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public boolean isDragMenuBtnClickable() {
-        return this.dragMenuBtn.isDisplayed();
+        return this.getDragMenuBtn().isDisplayed();
     }
 
     public DragScreen openDragScreen() {
-        this.dragMenuBtn.click();
+        this.getDragMenuBtn().click();
         return new DragScreen(driver);
     }
 

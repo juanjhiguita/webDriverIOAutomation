@@ -11,13 +11,13 @@ public class NavigationTest extends BaseTest {
     public void testOne(){
         // CONDICION PREVIA: EL USUARIO DEBE ESTAR EN LA PANTALLA DE INICIO
 
-        MainScreen mainScreen = returnMainScreen();
+        HomeScreen homeScreen = returnMainScreen();
         // Asserts para corroborar que se esta en la main screen
-        Assert.assertTrue(mainScreen.verifyBeOnMainScreen());
+        Assert.assertTrue(homeScreen.verifyBeOnMainScreen());
         // Luego, verificar que el MENU "WebView" es visible y clickeable, tambien mas propiedades
-        Assert.assertTrue(mainScreen.isWebViewMenuBtnDisplayed());
+        Assert.assertTrue(homeScreen.isWebViewMenuBtnDisplayed());
         // Se sigue con el flujo
-        WebViewScreen webViewScreen = mainScreen.openWebViewScreen();
+        WebViewScreen webViewScreen = homeScreen.openWebViewScreen();
 
         // Assert para corroborar que se esta en la pagina de WebView
         Assert.assertTrue(webViewScreen.verifyBeOnWebViewScreen());
