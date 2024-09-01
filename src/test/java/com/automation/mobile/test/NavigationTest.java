@@ -43,7 +43,7 @@ public class NavigationTest extends BaseTest {
         // Assert para corroborar que se esta en la pagina de Swipe
         Assert.assertTrue(swipeScreen.verifyBeOnSwipeScreen());
         // Luego verificar que el MENU "Drag" sea visible, clickeable y tambien mas propiedes
-        Assert.assertTrue(swipeScreen.isDragMenuBtnClickeable());
+        Assert.assertTrue(swipeScreen.isDragMenuBtnClickable());
         // Sigue con el flujo
         DragScreen dragScreen = swipeScreen.openDragScreen();
 
