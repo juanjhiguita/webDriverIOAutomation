@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class LoginScreen extends BaseScreen {
     public LoginScreen(AndroidDriver driver) {
         super(driver);
@@ -58,7 +60,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean verifyBeOnLoginScreen() {
-        WebDriverWait wait = setUpWait(10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(this.loginTitleTxt));
         return this.loginTitleTxt.isDisplayed();
     }
@@ -73,6 +75,8 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpClickable() {
+        WebDriverWait wait = setUpWait(10);
+        wait.until(ExpectedConditions.visibilityOf(this.signUpMenuBtn));
         return this.signUpMenuBtn.isDisplayed();
     }
 
@@ -81,6 +85,8 @@ public class LoginScreen extends BaseScreen {
     }
 
     public void openSignUpFormulary() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(this.signUpMenuBtn));
         this.signUpMenuBtn.click();
     }
 
@@ -104,7 +110,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpAlertEqualsExpected() {
-        WebDriverWait wait = setUpWait(10);
+        WebDriverWait wait = setUpWait(15);
         wait.until(ExpectedConditions.visibilityOf(this.alertTitle));
         wait.until(ExpectedConditions.visibilityOf(this.alertMessage));
         wait.until(ExpectedConditions.visibilityOf(this.alertOKBtn));

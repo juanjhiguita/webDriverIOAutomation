@@ -62,6 +62,6 @@ public class NavigationTest extends BaseTest {
     @AfterTest
     public void afterTest(){
         driver.quit();
-        log.info("TERMINADO");
+        log.info("Test Finish");
     }
 }
