@@ -5,8 +5,8 @@ import java.util.Locale;
 
 public class TestUtil {
     private static final String EMAIL_DOMAIN = "@example.com";
-    private static final int EMAIL_LENGTH = 10; // Length of the random part of the email
-    private static final int PASSWORD_LENGTH = 12; // Length of the password
+    private static final int EMAIL_LENGTH = 10;
+    private static final int PASSWORD_LENGTH = 12;
 
     private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
     private static final String UPPER = LOWER.toUpperCase(Locale.ROOT);

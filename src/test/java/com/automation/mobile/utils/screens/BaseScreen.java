@@ -58,30 +58,42 @@ public class BaseScreen {
     }
 
     public HomeScreen openHomeScreen() {
-        this.getHomeMenuBtn().click();
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.homeMenuBtn));
+        this.homeMenuBtn.click();
         return new HomeScreen(driver);
     }
 
     public WebviewScreen openWebViewScreen() {
-        this.getWebviewMenuBtn().click();
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.webviewMenuBtn));
+        this.webviewMenuBtn.click();
         return new WebviewScreen(driver);
     }
 
     public LoginScreen openLoginScreen() {
-        this.getLoginMenuBtn().click();
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.loginMenuBtn));
+        this.loginMenuBtn.click();
         return new LoginScreen(driver);
     }
 
     public FormsScreen openFormsScreen() {
-        this.getFormsMenuBtn().click();
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.formsMenuBtn));
+        this.formsMenuBtn.click();
         return new FormsScreen(driver);
     }
     public SwipeScreen openSwipeScreen() {
-        this.getSwipeMenuBtn().click();
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.swipeMenuBtn));
+        this.swipeMenuBtn.click();
         return new SwipeScreen(driver);
     }
 
     public DragScreen openDragScreen() {
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.dragMenuBtn));
         this.getDragMenuBtn().click();
         return new DragScreen(driver);
     }

@@ -23,7 +23,7 @@ public class WebviewScreen extends BaseScreen {
     }
 
     public boolean verifyBeOnWebViewScreen() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(this.getWebViewTitleTxt()));
         return this.webViewTitleTxt.isDisplayed();
     }

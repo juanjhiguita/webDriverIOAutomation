@@ -14,6 +14,9 @@ public class LoginScreen extends BaseScreen {
         super(driver);
     }
 
+    public static String emailRegistered = "";
+    public static String passwordRegistered = "";
+
     @AndroidFindBy(uiAutomator = "UiSelector().text(\"Login / Sign up Form\")")
     private WebElement loginTitleTxt;
 
@@ -48,14 +51,20 @@ public class LoginScreen extends BaseScreen {
     private WebElement alertOKBtn;
 
     public boolean isEmailFieldVisible() {
+        WebDriverWait wait = setUpWait(10);
+        wait.until(ExpectedConditions.visibilityOf(this.emailInputField));
         return this.emailInputField.isDisplayed();
     }
 
     public boolean isConfirmPasswordFieldVisible() {
+        WebDriverWait wait = setUpWait(10);
+        wait.until(ExpectedConditions.visibilityOf(this.confirmPasswordInputField));
         return this.confirmPasswordInputField.isDisplayed();
     }
 
     public boolean isPasswordFieldVisible() {
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.passwordInputField));
         return this.passwordInputField.isDisplayed();
     }
 
@@ -65,17 +74,8 @@ public class LoginScreen extends BaseScreen {
         return this.loginTitleTxt.isDisplayed();
     }
 
-    public boolean isFormsMenuBtnClickable(){
-        return getFormsMenuBtn().isDisplayed();
-    }
-
-    public FormsScreen openFormsScreen() {
-        getFormsMenuBtn().click();
-        return new FormsScreen(driver);
-    }
-
     public boolean isSignUpClickable() {
-        WebDriverWait wait = setUpWait(10);
+        WebDriverWait wait = setUpWait(20);
         wait.until(ExpectedConditions.visibilityOf(this.signUpMenuBtn));
         return this.signUpMenuBtn.isDisplayed();
     }
@@ -91,8 +91,14 @@ public class LoginScreen extends BaseScreen {
     }
 
     public void fillSignUpFormulary(String email, String password, String confirmPassowrd) {
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.emailInputField));
+        wait.until(ExpectedConditions.visibilityOf(this.passwordInputField));
+        wait.until(ExpectedConditions.visibilityOf(this.confirmPasswordInputField));
         this.emailInputField.sendKeys(email);
+        emailRegistered = email;
         this.passwordInputField.sendKeys(password);
+        passwordRegistered = password;
         this.confirmPasswordInputField.sendKeys(confirmPassowrd);
     }
 
@@ -110,7 +116,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpAlertEqualsExpected() {
-        WebDriverWait wait = setUpWait(15);
+        WebDriverWait wait = setUpWait(30);
         wait.until(ExpectedConditions.visibilityOf(this.alertTitle));
         wait.until(ExpectedConditions.visibilityOf(this.alertMessage));
         wait.until(ExpectedConditions.visibilityOf(this.alertOKBtn));
