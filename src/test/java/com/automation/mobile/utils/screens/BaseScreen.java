@@ -72,7 +72,7 @@ public class BaseScreen {
     }
 
     public LoginScreen openLoginScreen() {
-        WebDriverWait wait = setUpWait(20);
+        WebDriverWait wait = setUpWait(30);
         wait.until(ExpectedConditions.visibilityOf(this.loginMenuBtn));
         this.loginMenuBtn.click();
         return new LoginScreen(driver);

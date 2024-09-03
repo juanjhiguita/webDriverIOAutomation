@@ -41,7 +41,7 @@ public class RegisterTest extends BaseTest {
         Assert.assertTrue(loginScreen.isSignUpClickable());
         loginScreen.clickSignUpBtn();
         // Alert
-        Assert.assertTrue(loginScreen.  isSignUpAlertEqualsExpected());
+        Assert.assertTrue(loginScreen.isSignUpAlertEqualsExpected());
     }
 
     @AfterTest

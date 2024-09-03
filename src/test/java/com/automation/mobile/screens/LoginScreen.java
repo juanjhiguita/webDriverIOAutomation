@@ -75,7 +75,7 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpClickable() {
-        WebDriverWait wait = setUpWait(20);
+        WebDriverWait wait = setUpWait(30);
         wait.until(ExpectedConditions.visibilityOf(this.signUpMenuBtn));
         return this.signUpMenuBtn.isDisplayed();
     }
@@ -116,24 +116,30 @@ public class LoginScreen extends BaseScreen {
     }
 
     public boolean isSignUpAlertEqualsExpected() {
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.alertTitle));
+        wait.until(ExpectedConditions.visibilityOf(this.alertMessage));
+        // Verify sign up message
+        if(this.alertTitle.getText().equals("Signed Up!") && this.alertMessage.getText().equals("You successfully signed up!")){
+            wait.until(ExpectedConditions.elementToBeClickable(this.alertOKBtn));
+            this.alertOKBtn.click();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean isLoginAlertEqualsExpected() {
         WebDriverWait wait = setUpWait(30);
         wait.until(ExpectedConditions.visibilityOf(this.alertTitle));
         wait.until(ExpectedConditions.visibilityOf(this.alertMessage));
         wait.until(ExpectedConditions.visibilityOf(this.alertOKBtn));
-        this.alertOKBtn.click();
-
-        // VERIFICAR MENSAJES DEL SIGN UP
-        return true;
-    }
-
-    public boolean isLoginAlertEqualsExpected() {
-        WebDriverWait wait = setUpWait(10);
-        wait.until(ExpectedConditions.visibilityOf(this.alertTitle));
-        wait.until(ExpectedConditions.visibilityOf(this.alertMessage));
-        wait.until(ExpectedConditions.visibilityOf(this.alertOKBtn));
-
-        // VERIFICAR MENSAJES DEL LOGIN
-        this.alertOKBtn.click();
-        return true;
+        // Verify login message
+        if(this.alertTitle.getText().equals("Success") && this.alertMessage.getText().equals("You are logged in!")){
+            this.alertOKBtn.click();
+            return true;
+        }else{
+            return false;
+        }
     }
 }
