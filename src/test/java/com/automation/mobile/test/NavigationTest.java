@@ -1,8 +1,11 @@
 package com.automation.mobile.test;
 
 import com.automation.mobile.screens.*;
+import com.automation.mobile.utils.others.TestUtil;
 import com.automation.mobile.utils.screens.BaseScreen;
 import com.automation.mobile.utils.tests.BaseTest;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
