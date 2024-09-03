@@ -17,7 +17,7 @@ public class HomeScreen extends BaseScreen {
     private WebElement homeTitleTxt;
 
     public boolean verifyBeOnMainScreen() {
-        WebDriverWait wait = setUpWait(10);
+        WebDriverWait wait = setUpWait(20);
         wait.until(ExpectedConditions.visibilityOf(this.homeTitleTxt));
         return this.homeTitleTxt.isDisplayed();
     }

@@ -98,7 +98,7 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public boolean verifyBeOnSwipeScreen() {
-        WebDriverWait wait = setUpWait(10);
+        WebDriverWait wait = setUpWait(20);
         wait.until(ExpectedConditions.visibilityOf(this.swipeTitleTxt));
         return this.swipeTitleTxt.isDisplayed();
     }

@@ -92,9 +92,9 @@ public class LoginScreen extends BaseScreen {
 
     public void fillSignUpFormulary(String email, String password, String confirmPassowrd) {
         WebDriverWait wait = setUpWait(20);
-        wait.until(ExpectedConditions.visibilityOf(this.emailInputField));
-        wait.until(ExpectedConditions.visibilityOf(this.passwordInputField));
-        wait.until(ExpectedConditions.visibilityOf(this.confirmPasswordInputField));
+        wait.until(ExpectedConditions.elementToBeClickable(this.emailInputField));
+        wait.until(ExpectedConditions.elementToBeClickable(this.passwordInputField));
+        wait.until(ExpectedConditions.elementToBeClickable(this.confirmPasswordInputField));
         this.emailInputField.sendKeys(email);
         emailRegistered = email;
         this.passwordInputField.sendKeys(password);
