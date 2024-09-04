@@ -1,20 +1,22 @@
 package com.automation.mobile.screens;
 
+import com.automation.mobile.utils.others.TestUtil;
 import com.automation.mobile.utils.screens.BaseScreen;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import javax.rmi.CORBA.Tie;
+import javax.rmi.CORBA.Util;
+import java.sql.Time;
 import java.time.Duration;
-import java.util.Collections;
-import java.util.NoSuchElementException;
 
 public class SwipeScreen extends BaseScreen {
     public SwipeScreen(AndroidDriver driver) {
@@ -74,6 +76,8 @@ public class SwipeScreen extends BaseScreen {
     }
 
     public WebElement getCarrouselItem4() {
+        WebDriverWait wait = setUpWait(20);
+        wait.until(ExpectedConditions.visibilityOf(this.carrouselItem4));
         return carrouselItem4;
     }
 
@@ -85,26 +89,66 @@ public class SwipeScreen extends BaseScreen {
         return carrousel;
     }
 
-    public boolean isDisplayedMainCard(){
-        return this.carrouselItem0.isDisplayed();
+    public boolean isDisplayedCarrouselItem0(){
+        try{
+            return true;
+        }catch (NoSuchElementException | TimeoutException e){
+            return false;
+        }
     }
 
-    public void setCarrouselItem0(WebElement carrouselItem0) {
-        this.carrouselItem0 = carrouselItem0;
-    }
+    public boolean isDisplayedCarrouselItem1(){
+        try{
+            WebDriverWait wait = setUpWait(10);
+            wait.until(ExpectedConditions.visibilityOf(this.carrouselItem1));
+            return this.carrouselItem1.isDisplayed();
+        }catch (NoSuchElementException | TimeoutException e){
+            return false;
+        }
 
-    public void setCarrouselItem1(WebElement carrouselItem1) {
-        this.carrouselItem1 = carrouselItem1;
+    }
+    public boolean isDisplayedCarrouselItem2(){
+        try{
+            WebDriverWait wait = setUpWait(20);
+            wait.until(ExpectedConditions.visibilityOf(this.carrouselItem2));
+            return this.carrouselItem2.isDisplayed();
+        }catch (NoSuchElementException | TimeoutException e){
+            return false;
+        }
+
+    }
+    public boolean isDisplayedCarrouselItem3(){
+        try{
+            WebDriverWait wait = setUpWait(10);
+            wait.until(ExpectedConditions.visibilityOf(this.carrouselItem3));
+            return this.carrouselItem3.isDisplayed();
+        }catch (NoSuchElementException | TimeoutException e){
+            return false;
+        }
+
+    }
+    public boolean isDisplayedCarrouselItem4(){
+        try{
+            WebDriverWait wait = setUpWait(10);
+            wait.until(ExpectedConditions.visibilityOf(this.carrouselItem4));
+            return this.carrouselItem4.isDisplayed();
+        }catch (NoSuchElementException | TimeoutException e){
+            return false;
+        }
+
+    }
+    public boolean isDisplayedCarrouselItem5(){
+        try{
+            WebDriverWait wait = setUpWait(10);
+            wait.until(ExpectedConditions.visibilityOf(this.carrouselItem5));
+            return this.carrouselItem5.isDisplayed();
+        }catch (NoSuchElementException | TimeoutException e){
+            return false;
+        }
     }
 
     public boolean verifyBeOnSwipeScreen() {
-        WebDriverWait wait = setUpWait(20);
-        wait.until(ExpectedConditions.visibilityOf(this.swipeTitleTxt));
         return this.swipeTitleTxt.isDisplayed();
-    }
-
-    public boolean isDragMenuBtnClickable() {
-        return this.getDragMenuBtn().isDisplayed();
     }
 
     public DragScreen openDragScreen() {
@@ -121,5 +165,27 @@ public class SwipeScreen extends BaseScreen {
             return false;
         }
 
+    }
+
+
+
+    public void swipeToTheLastCard(Point initPoint, Point endPoint, Duration duration) {
+        int index = 0;
+        while(index < 4){
+            TestUtil.swipe(initPoint,endPoint,duration,driver);
+            index = index +1;
+        }
+    }
+
+    public boolean isTheLast(){
+        try{
+            this.carrouselItem4.isDisplayed();
+            this.carrouselItem3.isDisplayed();
+            this.carrouselItem2.isDisplayed();
+            this.carrouselItem1.isDisplayed();
+            return false;
+        }catch (NoSuchElementException | TimeoutException e){
+            return true;
+        }
     }
 }

@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(RegisterTest.class);
     private LoginScreen loginScreen = new LoginScreen(driver);
 
-    @BeforeMethod
+    @BeforeTest
     public void beforeTest() {
         // PREVIOUS CONDITION: The user is in the login section and should have a user created previously
         log.info("Test Start");

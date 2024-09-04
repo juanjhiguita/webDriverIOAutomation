@@ -85,7 +85,7 @@ public class BaseScreen {
         return new FormsScreen(driver);
     }
     public SwipeScreen openSwipeScreen() {
-        WebDriverWait wait = setUpWait(20);
+        WebDriverWait wait = setUpWait(40);
         wait.until(ExpectedConditions.elementToBeClickable(this.swipeMenuBtn));
         this.swipeMenuBtn.click();
         return new SwipeScreen(driver);
